@@ -72,13 +72,9 @@ sudo yum install puppet-bolt
 mkdir -p ~/Boltdir
 cd !$
 
-cat >>Puppetfile <<EOF
-mod 'puppetlabs-stdlib'
+bolt project init expiry --modules puppetlabs-stdlib,puppetlabs-ca_extend
 
-mod 'puppetlabs-ca_extend'
-EOF
-
-bolt puppetfile install
+bolt module install
 ```
 
 See the "Usage" section for how to run the tasks and plans remotely or locally on the master.
